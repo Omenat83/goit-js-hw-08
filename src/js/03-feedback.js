@@ -30,6 +30,10 @@ function createInputObj (email, message) {
 
 function formSubmit(evt) {
     evt.preventDefault();
+    if (userEmail.value.trim() === "" || userMessage.value.trim() === "") {
+        alert("Заповніть всі поля!");
+        return;
+    };
     evt.currentTarget.reset();
     console.log(JSON.parse(getInputObj()));
     localStorage.removeItem(STORAGE_KEY);
